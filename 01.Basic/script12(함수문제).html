@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" onclick="a1()">클릭1</button>
+    <button type="button" onclick="a2(10)">클릭2</button>
+    <button type="button" onclick="a3('홍길동', 10)">클릭3</button>
+
+    <script>
+        var a1 = () => {
+            alert("func1 실행");
+        }
+
+        var a2 = (a) => {
+            if(a % 2 == 0) {
+                alert("짝수");
+            }else{
+                alert("홀수");
+            }
+        }
+
+        var a3 = (a,b) => {
+            alert(a + "님의 점수 : " + b);
+        }
+
+
+        //일반함수
+        function point(a,b,c,d){
+            var avg = (b + c + d) / 3;
+            console.log(a +"님의 평균은 : " + avg);
+        }
+
+        //익명함수
+        var point = (a,b,c,d) => {
+            var avg = (b + c + d) / 3;
+            console.log(a +"님의 평균은 : " + avg);
+        }
+
+
+
+
+        console.log(point('홍길동', 88, 90, 90));
+
+
+    </script>
+    
+</body>
+</html>
