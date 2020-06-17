@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <select id="sel">
+        <option value="1.jpg">봄</option>
+        <option value="2.jpg">여름</option>
+        <option value="3.jpg">가을</option>
+        <option value="4.jpg">겨울</option>
+    </select>
+
+    <button type="button" id="btn">적용</button>
+
+    <input type="color" id="color-pad">
+
+    <img src="1.jpg" id="img" style="border:5px solid aquamarine">
+
+
+    <script>
+        var btn = document.getElementById("btn");
+        
+
+        btn.onclick = function() {
+            var sel = document.getElementById("sel").value;
+            var img = document.getElementById("img");
+            img.src=sel;
+        }
+
+        sel.onchange = function() {
+            var sel = document.getElementById("sel").value;
+            img.src=sel;
+        }
+
+        var col = document.getElementById("color-pad");
+        col.onclick = function() {
+            var color = col.value;
+            var img = document.getElementById("img");
+            img.style.borderColor=color;
+        }
+    </script>
+    
+</body>
+</html>

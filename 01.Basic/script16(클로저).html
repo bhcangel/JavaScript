@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /* function func() {
+            var a = "홍길동";
+        }   //여기서 a는 해제
+        console.log(a); //에러  */
+
+        function func(){
+            var a = "홍길동";
+
+            var result = function() {
+                return a;
+            }
+
+            console.log(result());
+        }
+
+        func();
+    </script>
+
+</body>
+</html>

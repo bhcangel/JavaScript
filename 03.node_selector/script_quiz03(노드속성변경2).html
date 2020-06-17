@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section>
+        <form>
+            아이디 : <input type="text" name="id" id="id">
+            <span class="idMsg"></span><br>
+            비밀번호 : <input type="password" name="pw" id="pw">
+            <span class="pwMsg"></span><br>
+        </form>
+    </section>
+
+    <script>
+        var id_tag = document.getElementById("id");
+        var pw_tag = document.getElementById("pw");
+
+        var idMsg = document.querySelector("section .idMsg");
+        var pwMsg = document.querySelector("section .pwMsg");
+
+        id_tag.onkeyup = function(){
+            var id = document.getElementById("id");
+            if(id.value.length < 4){
+                idMsg.innerHTML = "아이디 4글자 이상이거든요?";
+                id.style.borderColor="red";
+            } else{
+                idMsg.innerHTML = ""
+                id.style.borderColor="green";
+            }
+        }
+
+        
+
+        pw_tag.onkeyup = function(){
+            var pw = document.getElementById("pw");
+            if(pw.value.length < 9){
+                pwMsg.innerHTML = "비밀번호 9글자 이상이거든요?"
+                pw.style.borderColor="red";
+            } else{
+                pwMsg.innerHTML = "";
+                pw.style.borderColor="green";
+            }
+        }
+
+      
+
+
+
+
+    </script>
+
+</body>
+</html>

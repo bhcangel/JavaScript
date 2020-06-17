@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <button onclick="var a = 1; var b = 2; function func() { alert('경고창'); } func(); "> 인라인이벤트</button> -->
+
+    <button type="button" onclick="func()">인라인이벤트</button>
+
+    <!-- 여러태그에서 동일한 함수에 이벤트를 걸어줄 수 있습니다 -->
+    <button type="button" onclick="check2(this)" id="a">1</button>
+    <button type="button" onclick="check2(this)" id="b">2</button>
+    <button type="button" onclick="check2(this)" id="c">3</button>
+    <button type="button" onclick="check2(this)" id="d">4</button>
+    <button type="button" onclick="check2(this)" id="e">가나다</button>
+
+
+    <script>
+        function func(){
+            alert('경고창1');
+        }
+
+        function check2(a){
+            alert(a + " 출력");
+            console.log(a);     //this를 통해서 태그를 얻음
+            console.log(a.id);  //속성값은 .을 이용해서 접근이 가능합니다.
+            console.log(a.innerHTML);
+            a.innerHTML = a.id;
+        }
+    </script>
+</body>
+</html>

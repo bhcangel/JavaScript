@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h2>자바스크립트 카운트</h2>
+    <input type="text" value="0" id = "result" readonly>
+    <button type="button" id="plus" onclick="calc(this)">+</button>
+    <button type="button" id="minus" onclick="calc(this)">-</button>
+
+
+    <script>
+        function calc(a){
+            var result = document.getElementById("result"); //결과창
+
+            console.log(a.innerHTML);   //innerHTML은 태그안에 있는 문자
+
+            if(a.innerHTML == "+"){
+                result.value++;
+            } else {
+                result.value--;
+                if(result.value < 0){
+                    alert("0보다 작을수는 없습니다.");
+                    result.value = 0;
+                    return false;
+                }
+            }
+        }
+    </script>
+    
+
+
+</body>
+</html>
