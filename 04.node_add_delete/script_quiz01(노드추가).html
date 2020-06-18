@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0px; border-collapse: collapse;}
+        table thead tr th {border: 2px solid #777;}
+    </style>
+</head>
+<body>
+    
+    <table>
+        <thead> <!-- 제목 영역 -->
+            <tr>
+                <th>교시</th>
+                <th>훈련과목</th>
+                <th>담당자</th>
+                <th>훈련내용</th>
+            </tr>
+        </thead>
+
+        <tbody class="todoList">
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text" size="3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" size="5"></td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" id="addList">1개 추가하기</button>
+    <button type="button" id="addLists">5개 추가하기</button>
+
+
+
+
+    <script>
+        var btn1 = document.getElementById("addList");
+        var tbody = document.querySelector(".todoList");
+        btn1.onclick = function() {
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var text = document.createElement("input");
+            text.style.width="50px";
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            var text = document.createElement("input");
+            tr.appendChild(td);
+
+            td.appendChild(text);var td = document.createElement("td");
+            var text = document.createElement("input");
+            text.style.width="64px";
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td.appendChild(text);var td = document.createElement("td");
+            var text = document.createElement("input");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            tbody.appendChild(tr);
+
+        }
+
+
+
+        var btn2 = document.getElementById("addLists");
+        var tbody = document.querySelector(".todoList");
+        btn2.onclick = function() {
+
+            for(var i = 0; i < 5; i++){
+                var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var text = document.createElement("input");
+            text.style.width="50px";
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            var text = document.createElement("input");
+            tr.appendChild(td);
+
+            td.appendChild(text);var td = document.createElement("td");
+            var text = document.createElement("input");
+            text.style.width="64px";
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            td.appendChild(text);var td = document.createElement("td");
+            var text = document.createElement("input");
+            td.appendChild(text);
+            tr.appendChild(td);
+
+            tbody.appendChild(tr);
+            }
+            
+
+        }
+    </script>
+
+
+</body>
+</html>

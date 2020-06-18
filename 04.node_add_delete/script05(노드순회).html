@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0px; border-collapse: collapse;}
+        table thead tr th {border: 2px solid #777;}
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이동</th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody class="table">
+            <tr>
+                <td>
+                    <button onclick="up(this)">↑</button>
+                    <button onclick="down(this)">↓</button>
+                </td>
+                </td>
+                <td>1</td>
+                <td>홍길자</td>
+                <td>안녕하세요</td>
+                <td>2020-01-01</td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="up(this)">↑</button>
+                    <button onclick="down(this)">↓</button>
+                </td>
+                </td>
+                <td>2</td>
+                <td>이순신</td>
+                <td>재미있다</td>
+                <td>2021-02-02</td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="up(this)">↑</button>
+                    <button onclick="down(this)">↓</button>
+                </td>
+                </td>
+                <td>3</td>
+                <td>홍길순</td>
+                <td>반가워요</td>
+                <td>2022-03-03</td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="up(this)">↑</button>
+                    <button onclick="down(this)">↓</button>
+                </td>
+                </td>
+                <td>4</td>
+                <td>신사임당</td>
+                <td>bye</td>
+                <td>2023-04-04</td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="up(this)">↑</button>
+                    <button onclick="down(this)">↓</button>
+                </td>
+                </td>
+                <td>5</td>
+                <td>고길동</td>
+                <td>hello</td>
+                <td>2024-05-05</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function up(node){
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement; //현재 tr
+            var previous = current.previousElementSibling;  //이전 tr
+
+            table.insertBefore(previous, current.nextElementSibling);
+            if(previous === null){
+                return;
+            }
+
+        }
+
+        function down(node){
+            //console.log(node.parentNode);
+            //console.log(node.parentElement);
+            console.log("다음 형제노드 : " + node.nextElementSibling);   //다음형제노드
+            console.log("이전 형제노드 : " + node.previoutElementSibling);   //이전형제노드
+            //console.log(node.firstElementChild);
+            //console.log(node.lastElementChild);
+
+
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement;
+            var next = current.nextElementSibling;  //다음 tr
+
+            //기준노드의 다음위치에 current노드를 추가해라
+            table.insertBefore(current, next.nextElementSibling);
+
+
+
+            console.log("node.parentElement : ");
+            console.log(node.parentElement);
+            console.log("node.parentElement.parentElement : ");
+            console.log(node.parentElement.parentElement);
+            console.log("node.parentElement.parentElement : ");
+            console.log(current);
+            
+            console.log(current);
+            console.log("next : ");
+            console.log(next);
+        }
+    </script>
+</body>
+</html>
