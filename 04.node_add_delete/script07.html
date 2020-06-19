@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="naver">네이버로 변경 버튼</button>
+    <button id="google">구글로 변경 버튼</button>
+
+    <form action="#" method="POST" name = "regForm">
+        <input type="hidden" name = "num" value="">
+        <input type="text" name = "title" placeholder="제목">
+        
+        
+    </form>
+
+    <script>
+        var naver = document.getElementById("naver");
+        naver.onclick = function(){
+
+            document.regForm.action = "http://www.naver.com";
+            document.regForm.submit();
+        }
+
+        var google = document.getElementById("google");
+        google.onclick = function(){
+
+            //document.regForm.action = "http://www.google.com";
+            document.regForm.setAttribute("action", "http://www.google.com")
+            document.regForm.submit();
+        }
+    </script>
+
+    <button class = "toggle" id = "toggle">토글버튼</button>
+
+    <script>
+        var toggle = document.getElementById("toggle");
+        toggle.onclick = function(){
+            
+            if(toggle.className == "toggle"){
+                toggle.innerHTML = "변경";
+                toggle.className = "change";
+
+            }else{
+                toggle.innerHTML = "토글버튼";
+                toggle.className = "toggle";
+            }
+        }
+
+
+    </script>
+</body>
+</html>
