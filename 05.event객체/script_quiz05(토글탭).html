@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .toggle-menu{display: none;}
+        .active {background-color: aquamarine; display: block; animation: fadeIn 2s linear; color: blue;}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                color: aquamarine;
+            } to {
+                opacity: 1;
+                color: blue;
+            }
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <ul class="toggle">
+        <li data-id="#toggle1">메뉴1</li>
+        <li data-id="#toggle2">메뉴2</li>
+        <li data-id="#toggle3">메뉴3</li>
+    </ul>
+
+    <div class="toggle-menu active" id = "toggle1">토글메뉴1</div>
+    <div class="toggle-menu" id = "toggle2">토글메뉴2</div>
+    <div class="toggle-menu" id = "toggle3">토글메뉴3</div>
+
+    <script>
+        //ul에 이벤트 버블링을 이용해서 클릭 이벤트를 걸고 클릭되는 타겟의 data-id를 얻습니다.
+        //toggle-menu의 active 속성을 삭제
+        //data-id의 값에 알맞는 태그에 active 속성을 추가하면 됩니다.
+
+        var ul1 = document.querySelector(".toggle");
+        ul1.onclick = function() {
+            if(event.target.tagName !== "LI") {
+                return;
+            }
+            console.log(event.target.dataset.id);
+
+            //event.target.className="toggle-menu";
+
+            var div = document.querySelectorAll(".toggle-menu");
+            for(var i = 0; i < div.length; i++){
+                //div[i].style.color="black";
+                div[i].className="toggle-menu";
+            }
+
+
+            if(event.target.dataset.id == "#toggle1"){
+                //document.querySelector("#toggle1").style.color="red";
+                document.querySelector("#toggle1").className="toggle-menu active";
+                console.log(document.querySelector("#toggle1").className);
+
+            } else if(event.target.dataset.id == "#toggle2"){
+                //document.querySelector("#toggle2").style.color="red";
+                document.querySelector("#toggle2").className="toggle-menu active";
+                console.log(document.querySelector("#toggle2").className);
+
+            } else if(event.target.dataset.id == "#toggle3"){
+                //document.querySelector("#toggle3").style.color="red";
+                document.querySelector("#toggle3").className="toggle-menu active";
+                console.log(document.querySelector("#toggle3").className);
+            }
+
+
+
+        }
+
+    </script>
+    
+    
+</body>
+</html>

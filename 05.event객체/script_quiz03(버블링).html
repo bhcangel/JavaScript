@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0px; border-collapse: collapse;}
+        table thead tr th {border: 2px solid #777;}
+        
+        table tbody tr td {border: 1px solid #777;}
+    </style>
+</head>
+<body>
+    <h3>다중이벤트</h3>
+    <div>
+        <ul class="ul1">
+            <li><img src="img/1.jpg" alt="1" width="100"></li>
+            <li><img src="img/2.jpg" alt="2" width="100"></li>
+            <li><img src="img/3.jpg" alt="3" width="100"></li>
+            <li><img src="img/4.jpg" alt="4" width="100"></li>
+        </ul>
+    </div>
+
+    
+
+    결과
+    <div class="result">
+        <img src="img/1.jpg" alt="결과" width="1200">
+    </div>
+
+
+    <script>
+        var parent = document.querySelector(".ul1");
+        var result = document.querySelector(".result img");
+
+        parent.onclick = function() {
+            console.log(event.target.tagName);
+            if(event.target.tagName !== "IMG") return;
+            result.src = event.target.src
+        }
+    </script>
+
+
+
+
+
+    <table style="border-color: 1px solid black;">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody class="tbody2">
+            <tr>
+                <td>1</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>첫글</td>
+                <td>hi</td>
+                <td><button type="button" class="btn">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var tbody2 = document.querySelector(".tbody2");
+        tbody2.onclick = function() {
+            console.log(event.target);
+            console.log(event.target.tagName);
+            if(event.target.tagName !== "BUTTON") {
+                return;
+            }
+            var tr = event.target.parentElement.parentElement;
+            tbody2.removeChild(tr);
+
+            //event.target.parentElement.parentElement.remove(); //tr삭제
+        }
+    </script>
+</body>
+</html>

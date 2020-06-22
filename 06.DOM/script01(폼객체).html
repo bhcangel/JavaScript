@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form객체는 document의 자식객체로, 유일하게 name속성으로 접근이 가능합니다. -->
+
+    <form action="https://www.naver.com" name="regForm">
+        아이디 : <input type="text" name="id"><br>
+        비밀번호 : <input type="password" name="pw"><br>
+        번호 : 
+        <div>
+            <select name="phone1">
+                <option>선택</option>
+                <option>010</option>
+                <option>011</option>
+                <option>018</option>
+            </select>
+            -<input type="text" name="phone2">
+            -<input type="text" name="phone3">
+        </div>
+
+        자기소개 : 
+        <textarea cols="50" rows="3" name="intro"></textarea>
+
+        분야 : 
+        <input type="checkbox" name="inter">JAVA
+        <input type="checkbox" name="inter">DB
+        <input type="checkbox" name="inter">JAVASCRIPT
+        <input type="checkbox" name="inter">JSP <br>
+
+        <button type="button" id="regist">가입</button>
+
+
+    </form>
+
+
+    <script>
+        var regist = document.getElementById("regist");
+        regist.onclick = function() {
+            //console.log(document.regForm.id);
+
+            if(document.regForm.id.value.length < 4){
+                alert("아이디는 4글자 이상이어야 합니다");
+                document.regForm.id.focus();
+            } else if(document.regForm.pw.value.length < 8) {
+                alert("비밀번호는 8글자 이상이어야 합니다");
+                document.regForm.pw.focus();
+            } else if(document.regForm.phone1.value == '선택') {
+                alert("전화번호 앞자리를 확인해주세요");
+                document.regForm.phone1.focus();
+            } else {
+                var list = document.getElementsByName("inter");
+                console.log(list);
+
+                var bool = false;
+                for(var i = 0; i < list.length; i++){
+                    if(list[i].checked){
+                        bool = true;
+                        break;
+
+                    }
+                }
+                if(bool == false){
+                    alert("체크확인");
+                    return;
+                }
+            }
+
+            //서브밋
+            document.regForm.submit();
+        }
+    </script>
+</body>
+</html>

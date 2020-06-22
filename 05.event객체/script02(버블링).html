@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="parent">
+            <li class="list">1. 홍길동</li>
+            <li class="list">2. 이순신</li>
+            <li class="list">3. 김길자</li>
+            <li class="list">4. 고길동</li>
+            <li class="list">5. 홍길자</li>
+        </ul>
+    </div>
+
+    선택된 태그의 값
+    <p class="result"></p>
+
+
+    <script>
+        var parent = document.querySelector(".parent");
+        var result = document.querySelector(".result");
+        parent.onclick = function() {
+            //버블링을 사용할 때 부모를 클릭해도 적용되는 문제를 해결
+            console.log(event.target);  //이벤트가 적용된 타겟. 실행되는 이벤트가 보이는것
+            console.log(event.currentTarget);   //실제로 이벤트가 걸려있는 위치를 보여줌
+
+            if(event.target.tagName !== "LI") return;
+
+            result.innerHTML = event.target.innerHTML;
+        }
+    </script>
+
+</body>
+
+</html>
