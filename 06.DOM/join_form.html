@@ -86,18 +86,20 @@
                                 <div class="input-group-btn">
                                     <button class="btn btn-info" type="submit">아이디중복체크</button>
                                 </div>
-                                <b class="msgId">q</b>
+                                <span class="msgId">q</span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>비밀번호</label>
                             <input type="password" class="form-control" placeholder="비밀번호 영 대/소문자 숫자조합 8~16자">
+                            <span class="msgPw">q</span>
                         </div>
 
                         <div class="form-group">
                             <label>비밀번호 확인</label>
                             <input type="password" class="form-control" placeholder="비밀번호를 확인해주세요">
+                            <span class="msgPwConfirm">q</span>
                         </div>
 
                         <div class="form-group">
@@ -190,6 +192,34 @@
             } else {
                 id.style.borderColor="red";
                 msgId.innerHTML="";
+            }
+        }
+
+        //비밀번호 형식검사
+        var msgPw = document.querySelector(".msgPw");
+        var pw = document.getElementById("pw");
+        pw.onclick = function() {
+            var regex = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-z]).*$/;
+            if(regex.test(pw.value)) {
+                pw.style.borderColor = "green";
+                msgPw.innerHTML="사용가능합니다";
+            } else {
+                pw.style.borderColor="red";
+                msgPw.innerHTML="";
+            }
+        }
+
+
+        var msgPwConfirm = document.querySelector(".msgPwConfirm");
+        var pwComfirm = document.getElementById("pwConfirm");
+        pwComfirm.onclick = function() {
+            var regex = /^.*(?=.{6,20})(?=.*[0-9])(?=.*[a-zA-z]).*$/;
+            if(regex.test(pwComfirm.value) && (pwComfirm == pw)) {
+                pwComfirm.style.borderColor = "green";
+                msgPwComfirm.innerHTML="사용가능합니다";
+            } else {
+                pwComfirm.style.borderColor="red";
+                msgPwComfirm.innerHTML="";
             }
         }
     </script>

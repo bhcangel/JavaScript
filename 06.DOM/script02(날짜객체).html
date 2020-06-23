@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var millis = 1592874910010;
+        var today = new Date(millis);
+        console.log(today);
+        console.log(today.getTime());
+
+
+        var date = new Date();
+        console.log(date);  //지금날짜
+        console.log(date.getTime());    //지금날짜의 밀리초
+
+        console.log(date.getFullYear()+"년" + date.getMonth()+"월" + date.getDay()+"일");
+
+        var gap = date.getTime() - millis;  //시간차이
+        console.log("시간차이 : " + gap);
+
+        //1일을 기준으로 1일 이하인 이하인 경우는 시간차를 표기, 1일 이상인 경우는 등록날짜를 표기
+        var time;
+        
+        if(gap < 1000 * 60 * 60 * 24){  //1일 미만일 경우
+            if(gap < 1000 * 60 * 60) {  //1시간 미만일 경우
+                time = "방금전";
+                console.log(time);
+            } else {
+                time = parseInt(gap / (1000 * 60 * 60)) + "시간전";
+                console.log(time);
+            }
+        } else {    //1일 이상인경우
+            var date = new Date(millis);    //등록날짜 기반으로 날짜객체 생성
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+
+            time = year + "년" + (month < 10 ? "0" + month : month) + "월" + (day < 10 ? "0"+day : day) + "일";
+            console.log(time);
+        }
+    </script>
+    
+</body>
+</html>
