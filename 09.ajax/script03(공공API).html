@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        var lat;
+        var lng;
+        
+        navigator.geolocation.getCurrentPosition(function(position){
+            //console.log(position)
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            console.log(lat,lng)
+        }, function(){  
+            alert("실패")
+        })
+
+        fetch ("https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByGeo/json?lat=${lat}&lng=${lng}&m=5000").then(function(response){
+            console.log("response : ");
+            console.log(response);
+            console.log("");
+            if(response.status !== 200){
+                alert("!!")
+                return;
+            }else{
+                return response.json();
+            }
+        }).then(function(jsonData){
+            console.log("jsonData : ");
+            console.log(jsonData);
+            console.log("");
+        })
+    </script>
+</body>
+</html>
